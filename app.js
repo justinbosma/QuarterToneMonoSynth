@@ -4,7 +4,7 @@ var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 var globals = (function(){
     var pm = {};
     pm.colSelected = 0;
-    pm.numColumns = 16;
+    pm.numColumns = 24;
     pm.frequency = 220;
     pm.masterGain = audioCtx.createGain();
     pm.masterGain.gain.value = 1;
@@ -241,10 +241,13 @@ function clickCell(elmnt) {
 		var parent = elmnt.parentElement;
 		var indexString = parent.getAttribute('id');
 		var index = parseInt(indexString.charAt(indexString.length - 1));
-        //var oscIndex = cell.charAt(cell.length - 3);
+
         var oscVol = parseInt(cell.charAt(cell.length - 1));
         oscVol = oscVol*(1/9);
-        switch(parseInt(cell.charAt(cell.length - 3))) { //osc index 
+        var oscIndex = cellSubString.match(/\d+/);
+        console.log(oscIndex[0]);
+
+        switch(parseInt(oscIndex[0])) { //osc index 
             case 1:
                 globals.gain1.gain.value = oscVol;
                 break;
