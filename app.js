@@ -245,7 +245,6 @@ function clickCell(elmnt) {
         var oscVol = parseInt(cell.charAt(cell.length - 1));
         oscVol = oscVol*(1/9);
         var oscIndex = cellSubString.match(/\d+/);
-        console.log(oscIndex[0]);
 
         switch(parseInt(oscIndex[0])) { //osc index 
             case 1:
@@ -329,15 +328,13 @@ function clickCell(elmnt) {
             document.getElementById(cellString).classList.add('inactive');
 			//console.log(i);
 		};
-		for(i = index + 1; i < 24; i++) {
+		for(i = index + 1; i < 10; i++) {
 			var cellString = cellSubString + '_' + i;
 			document.getElementById(cellString).style.background = '#003C66';
             document.getElementById(cellString).classList.remove('active');
             document.getElementById(cellString).classList.add('inactive');
-			//if(document.getElementById(cellString).contains('active')) {
-				
-			//}
-			//console.log(i);
+
+
 		};
 
 	};
